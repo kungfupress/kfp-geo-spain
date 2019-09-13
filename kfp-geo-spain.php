@@ -10,7 +10,6 @@
 // Register Custom Taxonomy
 function Kfp_Taxonomy_provinces()
 {
-
     $labels = array(
         'name' => _x('Provincias', 'Taxonomy General Name', 'kfp_provinces'),
         'singular_name' => _x('Provincia', 'Taxonomy Singular Name', 'kfp_provinces'),
@@ -41,14 +40,12 @@ function Kfp_Taxonomy_provinces()
         'show_tagcloud' => true,
     );
     register_taxonomy('provincias', array('post', 'vti_idea'), $args);
-
 }
-
 add_action('init', 'Kfp_Taxonomy_provinces', 0);
 
 function Kfp_Provinces_add()
 {
-    $provincias = array('Álava', 'Albacete', 'Alicante', 'Almería', 'Asturias',
+	$provincias = array('Álava', 'Albacete', 'Alicante', 'Almería', 'Asturias',
 		'Ávila', 'Badajoz', 'Barcelona', 'Burgos', 'Cáceres', 'Cádiz', 
 		'Cantabria', 'Castellón', 'Ciudad Real', 'Córdoba', 'La Coruña', 
 		'Cuenca', 'Gerona', 'Granada', 'Guadalajara', 'Guipúzcoa', 'Huelva', 
@@ -60,6 +57,5 @@ function Kfp_Provinces_add()
 	foreach ($provincias as $provincia) {
 		wp_insert_term($provincia, 'provincias');
 	}
-
 }
 add_action('init', 'Kfp_Provinces_add', 1);
