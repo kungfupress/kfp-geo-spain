@@ -1,14 +1,20 @@
 <?php
 /**
- * Plugin Name:  KFP Geo Spain
- * Description:  Taxonomías con las toponimias de España (provincias, capitales, municipios)
- * Version:      0.1.1
- * Author:       Juanan Ruiz
- * Author URI:   https://kungfupress.com/
+ * Plugin Name: KFP Geo Spain
+ * Description: Taxonomías con las toponimias de España (provincias, capitales, municipios)
+ * Version: 0.1.1
+ * Author: Juanan Ruiz
+ * Author URI: https://kungfupress.com/
+ *
+ * @package KFP Geo Spain
  */
 
-// Register Custom Taxonomy
-function Kfp_Taxonomy_provinces()
+/**
+ * Register Custom Taxonomy
+ *
+ * @return void
+ */
+function kfp_taxonomy_provinces()
 {
     $labels = array(
         'name' => _x('Provincias', 'Taxonomy General Name', 'kfp_provinces'),
@@ -41,21 +47,26 @@ function Kfp_Taxonomy_provinces()
     );
     register_taxonomy('provincias', array('post', 'vti_idea'), $args);
 }
-add_action('init', 'Kfp_Taxonomy_provinces', 0);
+add_action('init', 'kfp_taxonomy_provinces', 0);
 
-function Kfp_Provinces_add()
+/**
+ * Agrega las provincias como terms
+ *
+ * @return void
+ */
+function kfp_provinces_add()
 {
-	$provincias = array('Álava', 'Albacete', 'Alicante', 'Almería', 'Asturias',
-		'Ávila', 'Badajoz', 'Barcelona', 'Burgos', 'Cáceres', 'Cádiz', 
-		'Cantabria', 'Castellón', 'Ciudad Real', 'Córdoba', 'La Coruña', 
-		'Cuenca', 'Gerona', 'Granada', 'Guadalajara', 'Guipúzcoa', 'Huelva', 
-		'Huesca', 'Islas Baleares', 'Jaén', 'León', 'Lérida', 'Lugo', 'Madrid', 
-		'Málaga', 'Murcia', 'Navarra', 'Orense', 'Palencia', 'Las Palmas', 
-		'Pontevedra', 'La Rioja', 'Salamanca', 'Segovia', 'Sevilla', 'Soria', 
-		'Tarragona', 'Santa Cruz de Tenerife', 'Teruel', 'Toledo', 'Valencia', 
-		'Valladolid', 'Vizcaya', 'Zamora', 'Zaragoza');
-	foreach ($provincias as $provincia) {
-		wp_insert_term($provincia, 'provincias');
-	}
+    $provincias = array('Álava', 'Albacete', 'Alicante', 'Almería', 'Asturias',
+        'Ávila', 'Badajoz', 'Barcelona', 'Burgos', 'Cáceres', 'Cádiz',
+        'Cantabria', 'Castellón', 'Ciudad Real', 'Córdoba', 'La Coruña',
+        'Cuenca', 'Gerona', 'Granada', 'Guadalajara', 'Guipúzcoa', 'Huelva',
+        'Huesca', 'Islas Baleares', 'Jaén', 'León', 'Lérida', 'Lugo', 'Madrid',
+        'Málaga', 'Murcia', 'Navarra', 'Orense', 'Palencia', 'Las Palmas',
+        'Pontevedra', 'La Rioja', 'Salamanca', 'Segovia', 'Sevilla', 'Soria',
+        'Tarragona', 'Santa Cruz de Tenerife', 'Teruel', 'Toledo', 'Valencia',
+        'Valladolid', 'Vizcaya', 'Zamora', 'Zaragoza');
+    foreach ($provincias as $provincia) {
+        wp_insert_term($provincia, 'provincias');
+    }
 }
-add_action('init', 'Kfp_Provinces_add', 1);
+add_action('init', 'kfp_provinces_add', 1);
