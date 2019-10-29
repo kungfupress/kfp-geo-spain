@@ -33,7 +33,7 @@ function kfp_taxonomy_provinces() {
 		'not_found'                  => __( 'No encontrada', 'kfp_provinces' ),
 		'no_terms'                   => __( 'No hay provincias', 'kfp_provinces' ),
 		'items_list'                 => __( 'Lista de provincias', 'kfp_provinces' ),
-		'items_list_navigation'      => __( 'Items list navigation', 'kfp_provinces' ),
+		'items_list_navigation'      => __( 'Lista de navegación de provincias', 'kfp_provinces' ),
 	);
 	$args   = array(
 		'labels'            => $labels,
