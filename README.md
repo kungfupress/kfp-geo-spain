@@ -17,4 +17,5 @@ Este plugin es un ejemplo de cómo implementar desde código una taxonomía pers
 register_taxonomy( 'provincias', array( 'post', 'vti_idea' ), $args );
 ```
 
+![Captura del código en acción](img/taxonomia_provincias.png)
 
